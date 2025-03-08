@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		561944D02D7C7CB500DDD5D6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 561944CF2D7C7CB500DDD5D6 /* Alamofire */; };
+		561944D22D7C7CB500DDD5D6 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 561944D12D7C7CB500DDD5D6 /* AlamofireDynamic */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		561944AB2D7C7ACA00DDD5D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				561944D02D7C7CB500DDD5D6 /* Alamofire in Frameworks */,
+				561944D22D7C7CB500DDD5D6 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,8 @@
 			);
 			name = Instagram_test;
 			packageProductDependencies = (
+				561944CF2D7C7CB500DDD5D6 /* Alamofire */,
+				561944D12D7C7CB500DDD5D6 /* AlamofireDynamic */,
 			);
 			productName = Instagram_test;
 			productReference = 5619449A2D7C7AC900DDD5D6 /* Instagram_test.app */;
@@ -572,6 +581,19 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		561944CF2D7C7CB500DDD5D6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 561944C72D7C7B0600DDD5D6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		561944D12D7C7CB500DDD5D6 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 561944C72D7C7B0600DDD5D6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 561944922D7C7AC900DDD5D6 /* Project object */;
 }
