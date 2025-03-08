@@ -31,10 +31,9 @@ struct InstagramStoryDetailView: View {
                 viewModel.likedPhoto()
             }
             .overlay(alignment: .topTrailing) {
-                Image(systemName: viewModel.isLiked ? "heart.fill" : "heart")
+                Image(systemName: viewModel.photo.isLiked ? "heart.fill" : "heart")
                     .frame(width: 50, height: 50)
                     .foregroundColor(viewModel.photo.isLiked ? .red : .white)
-                    .foregroundColor(.white)
                     .padding(.top)
             }
         }
