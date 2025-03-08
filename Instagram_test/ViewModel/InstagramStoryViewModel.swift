@@ -19,14 +19,22 @@ class InstagramStoryViewModel: ObservableObject {
         fetchPhotos()
     }
     
-    func onLikedPhoto(photo: Photo) {}
+    func onClickPhoto(photo: Photo) {
+        print(">>>> click cell \(photo.id)")
+    }
+    
+    func onLikedPhoto(photo: Photo) {
+        print(">>>> like cell \(photo.id)")
+    }
     
     func fetchPhotos(offset: Int = 0) {
         isLoading = true
         Task {
             do {
                 let album = try await APIManager.shared.fetchPhotos(offset: offset, limit: Constant.photoLimit)
-                photoList = album.photos
+                await MainActor.run {
+                    self.photoList = album.photos
+                }
 //                try await PersistenceController.shared.update(users: accountList, isBlockedByRegularUser: true)
             } catch {
                 print("Fetched blocked user list failed with error: \(error)")

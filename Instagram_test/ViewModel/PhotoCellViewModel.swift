@@ -15,15 +15,21 @@ final class PhotoCellViewModel: ObservableObject {
     @Published var photoURL: URL?
     
     private var photo: Photo
+    private var onClickPhoto: ((Photo) -> Void)?
     private var onLikedPhoto: ((Photo) -> Void)?
     
-    init(photo: Photo, onLikedPhoto: ((Photo) -> Void)?) {
+    init(photo: Photo,
+         onClickPhoto: ((Photo) -> Void)?,
+         onLikedPhoto: ((Photo) -> Void)?) {
         self.photo = photo
+        self.onClickPhoto = onClickPhoto
         self.onLikedPhoto = onLikedPhoto
         
         self.photoURL = URL(string: photo.url)
     }
-    
+    func clickPhoto() {
+        onClickPhoto?(photo)
+    }
     func likedPhoto() {
         onLikedPhoto?(photo)
     }

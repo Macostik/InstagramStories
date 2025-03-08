@@ -14,11 +14,33 @@ import SwiftUI
 struct PhotoCellView: View {
     @ObservedObject var viewModel: PhotoCellViewModel
     
-    init(photo: Photo, onLikePhoto: @escaping (Photo) -> Void) {
-        viewModel = PhotoCellViewModel(photo: photo, onLikedPhoto: onLikePhoto)
+    init(photo: Photo,
+         onClickPhoto: @escaping (Photo) -> Void,
+         onLikePhoto: @escaping (Photo) -> Void) {
+        viewModel = PhotoCellViewModel(photo: photo,
+                                       onClickPhoto: onClickPhoto,
+                                       onLikedPhoto: onLikePhoto)
     }
     var body: some View {
-        AsyncImage(url: viewModel.photoURL)
-            .ignoresSafeArea()
+        AsyncImage(url: viewModel.photoURL) { image in
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+        } placeholder: {
+            Image(systemName: "photo")
+        }
+        .onTapGesture {
+            viewModel.clickPhoto()
+        }
+        .onTapGesture(count: 2) {
+            viewModel.likedPhoto()
+        }
+        .overlay(alignment: .topTrailing) {
+            Image(systemName: "heart")
+                .frame(width: 50, height: 50)
+                .foregroundColor(.white)
+                .padding(.trailing)
+                .padding(.top)
+        }
     }
 }

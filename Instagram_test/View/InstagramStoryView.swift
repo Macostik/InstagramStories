@@ -25,7 +25,9 @@ struct InstagramStoryView: View {
 extension InstagramStoryView {
     func imagesListView() -> some View {
         List(viewModel.photoList) { photo in
-            PhotoCellView(photo: photo, onLikePhoto: viewModel.onLikedPhoto)
+            PhotoCellView(photo: photo,
+                          onClickPhoto: viewModel.onClickPhoto,
+                          onLikePhoto: viewModel.onLikedPhoto)
             .onAppear {
                 if photo == viewModel.photoList.last {
                     self.viewModel.fetchPhotos(offset: viewModel.photoList.count)
