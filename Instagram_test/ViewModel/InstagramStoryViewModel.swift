@@ -9,18 +9,20 @@
 //
 
 import Foundation
+import SwiftUI
 
 class InstagramStoryViewModel: ObservableObject {
     
     @Published var photoList = [Photo]()
     @Published var isLoading = false
+    @Published var path = NavigationPath()
     
     init() {
         fetchPhotos()
     }
     
     func onClickPhoto(photo: Photo) {
-        print(">>>> click cell \(photo.id)")
+        path.append(photo)
     }
     
     func onLikedPhoto(photo: Photo) {

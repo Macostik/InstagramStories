@@ -14,8 +14,13 @@ import SwiftUI
 struct InstagramStoryView: View {
     @ObservedObject var viewModel = InstagramStoryViewModel()
     var body: some View {
-        ZStack {
+        NavigationStack(path: $viewModel.path) {
+            ZStack {
                 imagesListView()
+            }
+            .navigationDestination(for: Photo.self) { photo in
+                InstagramStoryDetailView(photo: photo)
+            }
         }
         .ignoresSafeArea(.all)
         .frame(maxWidth: .infinity, maxHeight: .infinity)

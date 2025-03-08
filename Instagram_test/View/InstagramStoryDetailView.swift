@@ -12,11 +12,23 @@
 import SwiftUI
 
 struct InstagramStoryDetailView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    @ObservedObject var viewModel: InstagramStoryDetailViewModel
+    
+    init(photo: Photo) {
+        viewModel = InstagramStoryDetailViewModel(photo: photo)
     }
-}
-
-#Preview {
-    InstagramStoryDetailView()
+    
+    var body: some View {
+        ZStack {
+            AsyncImage(url: viewModel.photoUrl) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            } placeholder: {
+                Image(systemName: "photo")
+            }
+        }
+        .ignoresSafeArea()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
 }

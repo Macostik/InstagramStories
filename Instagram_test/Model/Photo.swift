@@ -11,7 +11,7 @@
 import Foundation
 
 // Define a struct to match the API response
-struct Photo: Codable, Equatable, Identifiable {
+struct Photo: Codable, Equatable, Identifiable, Hashable {
     let id: Int
     let title: String
     let url: String
