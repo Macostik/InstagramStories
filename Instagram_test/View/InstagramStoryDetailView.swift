@@ -23,9 +23,19 @@ struct InstagramStoryDetailView: View {
             AsyncImage(url: viewModel.photoUrl) { image in
                 image
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .scaledToFit()
             } placeholder: {
                 Image(systemName: "photo")
+            }
+            .onTapGesture(count: 2) {
+                viewModel.likedPhoto()
+            }
+            .overlay(alignment: .topTrailing) {
+                Image(systemName: viewModel.isLiked ? "heart.fill" : "heart")
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(viewModel.isLiked ? .red : .white)
+                    .foregroundColor(.white)
+                    .padding(.top)
             }
         }
         .ignoresSafeArea()

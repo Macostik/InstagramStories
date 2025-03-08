@@ -10,6 +10,17 @@
 
 import Foundation
 
-public struct Album: Codable {
+public struct Album: Hashable {
     var photos: [Photo]
+    
+    enum CodingKeys: String, CodingKey {
+        case photos
+    }
+}
+
+extension Album: Decodable {
+  public init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+      photos = try container.decode([Photo].self, forKey: .photos)
+  }
 }

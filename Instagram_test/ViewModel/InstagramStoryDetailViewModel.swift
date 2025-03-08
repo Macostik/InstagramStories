@@ -14,6 +14,8 @@ import Foundation
 class InstagramStoryDetailViewModel: ObservableObject {
     
     @Published var photoUrl: URL?
+    @Published var isLiked: Bool = false
+    
     
     private var photo: Photo
     
@@ -21,5 +23,11 @@ class InstagramStoryDetailViewModel: ObservableObject {
         self.photo = photo
         
         self.photoUrl = URL(string: photo.url)
+        self.isLiked = photo.isLiked
+    }
+    
+    func likedPhoto() {
+        photo.isLiked = !photo.isLiked
+        isLiked = photo.isLiked
     }
 }

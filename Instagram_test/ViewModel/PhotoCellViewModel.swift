@@ -13,17 +13,15 @@ import Foundation
 final class PhotoCellViewModel: ObservableObject {
     
     @Published var photoURL: URL?
+    @Published var isLiked: Bool = false
     
     private var photo: Photo
     private var onClickPhoto: ((Photo) -> Void)?
-    private var onLikedPhoto: ((Photo) -> Void)?
     
     init(photo: Photo,
-         onClickPhoto: ((Photo) -> Void)?,
-         onLikedPhoto: ((Photo) -> Void)?) {
+         onClickPhoto: ((Photo) -> Void)?) {
         self.photo = photo
         self.onClickPhoto = onClickPhoto
-        self.onLikedPhoto = onLikedPhoto
         
         self.photoURL = URL(string: photo.url)
     }
@@ -31,6 +29,7 @@ final class PhotoCellViewModel: ObservableObject {
         onClickPhoto?(photo)
     }
     func likedPhoto() {
-        onLikedPhoto?(photo)
+        photo.isLiked = !photo.isLiked
+        isLiked = photo.isLiked
     }
 }
