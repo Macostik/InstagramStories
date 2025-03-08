@@ -18,7 +18,8 @@ struct PhotoCellView: View {
          onClickPhoto: @escaping (Photo) -> Void,
          onLikePhoto: @escaping (Photo) -> Void) {
         viewModel = PhotoCellViewModel(photo: photo,
-                                       onClickPhoto: onClickPhoto)
+                                       onClickPhoto: onClickPhoto,
+                                       onLikedPhoto: onLikePhoto)
     }
     var body: some View {
         AsyncImage(url: viewModel.photoURL) { image in

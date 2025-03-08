@@ -26,7 +26,7 @@ class InstagramStoryViewModel: ObservableObject {
     }
     
     func onLikedPhoto(photo: Photo) {
-        print(">>>> like cell \(photo.id)")
+        
     }
     
     func fetchPhotos(offset: Int = 0) {
