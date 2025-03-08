@@ -27,9 +27,9 @@ class APIManager {
            session = Session(configuration: configuration)
        }
     
-    func fetchPhotos(offset: Int, limit: Int) async throws -> [Photo] {
+    func fetchPhotos(offset: Int, limit: Int) async throws -> Album {
         try await session.request(FetcherImageRouter.getImages(offset, limit))
-            .serializingDecodable([Photo].self).value
+            .serializingDecodable(Album.self).value
         }
 }
 

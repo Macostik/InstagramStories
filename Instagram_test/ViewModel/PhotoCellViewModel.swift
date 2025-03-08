@@ -12,12 +12,16 @@ import Foundation
 
 final class PhotoCellViewModel: ObservableObject {
     
+    @Published var photoURL: URL?
+    
     private var photo: Photo
     private var onLikedPhoto: ((Photo) -> Void)?
     
     init(photo: Photo, onLikedPhoto: ((Photo) -> Void)?) {
         self.photo = photo
         self.onLikedPhoto = onLikedPhoto
+        
+        self.photoURL = URL(string: photo.url)
     }
     
     func likedPhoto() {

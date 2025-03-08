@@ -14,13 +14,11 @@ import SwiftUI
 struct InstagramStoryView: View {
     @ObservedObject var viewModel = InstagramStoryViewModel()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+                imagesListView()
         }
-        .padding()
+        .ignoresSafeArea(.all)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
@@ -41,9 +39,8 @@ extension InstagramStoryView {
         .listRowSpacing(16)
         .listStyle(.plain)
         .scrollDismissesKeyboard(.immediately)
-        .padding(.horizontal)
         .overlay {
-            LoaderView(isPresented:$viewModel.isLoading)
+            LoaderView(isPresented: $viewModel.isLoading)
         }
     }
 }

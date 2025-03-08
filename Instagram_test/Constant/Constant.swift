@@ -12,6 +12,7 @@
 import Foundation
 
 struct Constant {
-    static let baseURL = "https://api.slingacademy.com/v1/sample-data"
+    static let baseURL = "https://api.slingacademy.com/v1"
     static let timeOutInterval: TimeInterval = 30
+    static let photoLimit = 20
 }

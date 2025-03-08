@@ -26,7 +26,7 @@ extension FetcherImageRouter {
     var path: String {
         switch self {
         case .getImages:
-            return "/photos"
+            return "/sample-data/photos"
         }
     }
     
