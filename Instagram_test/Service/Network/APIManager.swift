@@ -17,6 +17,7 @@ class APIManager {
     static let shared = APIManager()
     private let session: Session
     
+    // AF default session with ignoring cashe
     private init() {
         var configuration: URLSessionConfiguration {
             let configuration = URLSessionConfiguration.af.default
@@ -27,6 +28,7 @@ class APIManager {
            session = Session(configuration: configuration)
        }
     
+    // Helper method to fetch photo list with pagination effect
     func fetchPhotos(offset: Int, limit: Int) async throws -> Album {
         try await session.request(FetcherImageRouter.getImages(offset, limit))
             .serializingDecodable(Album.self).value

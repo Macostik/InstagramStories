@@ -28,9 +28,12 @@ final class PhotoCellViewModel: ObservableObject {
         
         self.photoURL = URL(string: photo.url ?? "")
     }
+    // Handle click by cell to present detail
     func clickPhoto() {
         onClickPhoto?(photo)
     }
+    
+    // Handle click like/unlike. Store like value to DB
     func likedPhoto() {
         onLikedPhoto?(photo)
         isLiked.toggle()

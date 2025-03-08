@@ -32,6 +32,7 @@ class InstagramStoryViewModel: ObservableObject {
         isLoading = true
         Task {
             do {
+                // Fetch list photos from the free Network API
                 let album = try await APIManager.shared.fetchPhotos(offset: offset, limit: Constant.photoLimit)
                 _ = try await PersistenceController.shared.savePhotos(photos: album.photos)
             } catch {

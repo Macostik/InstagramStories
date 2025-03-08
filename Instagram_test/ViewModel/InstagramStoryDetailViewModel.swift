@@ -23,12 +23,10 @@ class InstagramStoryDetailViewModel: ObservableObject {
         self.photo = photo
         
         self.photoUrl = URL(string: photo.url ?? "")
-//        self.isLiked = photo.isLiked
     }
     
+    // Handle click like/unlike. Store like value to DB
     func likedPhoto() {
-//        photo.isLiked = !photo.isLiked
-//        isLiked = photo.isLiked
         isLiked.toggle()
         PersistenceController.shared.update(photo: photo, isLiked: isLiked)
     }

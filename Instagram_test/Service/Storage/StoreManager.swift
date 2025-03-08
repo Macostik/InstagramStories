@@ -70,6 +70,7 @@ extension PersistenceController {
         }
     }
     
+    // Fetching photo by ID
     func fetchPhotoByID(id: Int64) -> PhotoEntity? {
            let fetchRequest: NSFetchRequest<PhotoEntity> = PhotoEntity.fetchRequest()
            fetchRequest.predicate = NSPredicate(format: "id == %d", id)
@@ -83,6 +84,7 @@ extension PersistenceController {
            }
        }
     
+    // Update Photo with like/unlike
     func update(photo: PhotoEntity, isLiked: Bool) {
         if let photo = fetchPhotoByID(id: photo.id) {
             photo.isLiked = isLiked
