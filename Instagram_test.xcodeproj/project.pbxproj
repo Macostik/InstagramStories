@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		561944D02D7C7CB500DDD5D6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 561944CF2D7C7CB500DDD5D6 /* Alamofire */; };
-		561944D22D7C7CB500DDD5D6 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 561944D12D7C7CB500DDD5D6 /* AlamofireDynamic */; };
+		561D44FA2D7C8207005039BD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 561D44F92D7C8207005039BD /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				561944D02D7C7CB500DDD5D6 /* Alamofire in Frameworks */,
-				561944D22D7C7CB500DDD5D6 /* AlamofireDynamic in Frameworks */,
+				561D44FA2D7C8207005039BD /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +117,7 @@
 			);
 			name = Instagram_test;
 			packageProductDependencies = (
-				561944CF2D7C7CB500DDD5D6 /* Alamofire */,
-				561944D12D7C7CB500DDD5D6 /* AlamofireDynamic */,
+				561D44F92D7C8207005039BD /* Alamofire */,
 			);
 			productName = Instagram_test;
 			productReference = 5619449A2D7C7AC900DDD5D6 /* Instagram_test.app */;
@@ -205,7 +202,7 @@
 			mainGroup = 561944912D7C7AC900DDD5D6;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				561944C72D7C7B0600DDD5D6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				561D44F82D7C8207005039BD /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5619449B2D7C7AC900DDD5D6 /* Products */;
@@ -572,7 +569,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		561944C72D7C7B0600DDD5D6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		561D44F82D7C8207005039BD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
@@ -583,15 +580,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		561944CF2D7C7CB500DDD5D6 /* Alamofire */ = {
+		561D44F92D7C8207005039BD /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 561944C72D7C7B0600DDD5D6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 561D44F82D7C8207005039BD /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		561944D12D7C7CB500DDD5D6 /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 561944C72D7C7B0600DDD5D6 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

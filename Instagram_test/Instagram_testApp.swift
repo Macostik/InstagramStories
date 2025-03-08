@@ -15,7 +15,7 @@ import SwiftUI
 struct Instagram_testApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            InstagramStoryView()
         }
     }
 }
