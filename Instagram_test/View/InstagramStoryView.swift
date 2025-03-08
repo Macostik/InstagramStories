@@ -36,9 +36,9 @@ extension InstagramStoryView {
                           onClickPhoto: viewModel.onClickPhoto,
                           onLikePhoto: viewModel.onLikedPhoto)
             .onAppear {
-//                if photo == photoList.last {
-//                    self.viewModel.fetchPhotos(offset: viewModel.photoList.count)
-//                }
+                if photo == photoList.last {
+                    self.viewModel.fetchPhotos(offset: photoList.count)
+                }
             }
             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             .listRowSeparator(.hidden)

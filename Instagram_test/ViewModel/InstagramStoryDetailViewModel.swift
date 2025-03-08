@@ -17,7 +17,7 @@ class InstagramStoryDetailViewModel: ObservableObject {
     @Published var isLiked: Bool = false
     
     
-    private var photo: PhotoEntity
+    var photo: PhotoEntity
     
     init(photo: PhotoEntity) {
         self.photo = photo

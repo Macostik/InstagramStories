@@ -15,7 +15,7 @@ final class PhotoCellViewModel: ObservableObject {
     @Published var photoURL: URL?
     @Published var isLiked: Bool = false
     
-    private var photo: PhotoEntity
+    var photo: PhotoEntity
     private var onClickPhoto: ((PhotoEntity) -> Void)?
     private var onLikedPhoto: ((PhotoEntity) -> Void)?
     
@@ -34,5 +34,6 @@ final class PhotoCellViewModel: ObservableObject {
     func likedPhoto() {
         onLikedPhoto?(photo)
         isLiked.toggle()
+        PersistenceController.shared.update(photo: photo, isLiked: isLiked)
     }
 }

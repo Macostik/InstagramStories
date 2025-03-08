@@ -38,7 +38,7 @@ struct PhotoCellView: View {
         .overlay(alignment: .topTrailing) {
             Image(systemName: viewModel.isLiked ? "heart.fill" : "heart")
                 .frame(width: 50, height: 50)
-                .foregroundColor(viewModel.isLiked ? .red : .white)
+                .foregroundColor(viewModel.photo.isLiked ? .red : .white)
                 .padding(.trailing)
                 .padding(.top)
         }
