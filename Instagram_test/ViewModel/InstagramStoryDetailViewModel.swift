@@ -29,5 +29,7 @@ class InstagramStoryDetailViewModel: ObservableObject {
     func likedPhoto() {
 //        photo.isLiked = !photo.isLiked
 //        isLiked = photo.isLiked
+        isLiked.toggle()
+        PersistenceController.shared.update(photo: photo, isLiked: isLiked)
     }
 }
