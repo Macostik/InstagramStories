@@ -13,7 +13,6 @@ import SwiftUI
 
 class InstagramStoryViewModel: ObservableObject {
     
-    @Published var photoList = [Photo]()
     @Published var isLoading = false
     @Published var path = NavigationPath()
     
@@ -21,11 +20,11 @@ class InstagramStoryViewModel: ObservableObject {
         fetchPhotos()
     }
     
-    func onClickPhoto(photo: Photo) {
+    func onClickPhoto(photo: PhotoEntity) {
         path.append(photo)
     }
     
-    func onLikedPhoto(photo: Photo) {
+    func onLikedPhoto(photo: PhotoEntity) {
         
     }
     
@@ -34,10 +33,7 @@ class InstagramStoryViewModel: ObservableObject {
         Task {
             do {
                 let album = try await APIManager.shared.fetchPhotos(offset: offset, limit: Constant.photoLimit)
-                await MainActor.run {
-                    self.photoList = album.photos
-                }
-//                try await PersistenceController.shared.update(users: accountList, isBlockedByRegularUser: true)
+                _ = try await PersistenceController.shared.savePhotos(photos: album.photos)
             } catch {
                 print("Fetched blocked user list failed with error: \(error)")
             }

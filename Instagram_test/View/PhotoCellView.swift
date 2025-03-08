@@ -14,9 +14,9 @@ import SwiftUI
 struct PhotoCellView: View {
     @ObservedObject var viewModel: PhotoCellViewModel
     
-    init(photo: Photo,
-         onClickPhoto: @escaping (Photo) -> Void,
-         onLikePhoto: @escaping (Photo) -> Void) {
+    init(photo: PhotoEntity,
+         onClickPhoto: @escaping (PhotoEntity) -> Void,
+         onLikePhoto: @escaping (PhotoEntity) -> Void) {
         viewModel = PhotoCellViewModel(photo: photo,
                                        onClickPhoto: onClickPhoto,
                                        onLikedPhoto: onLikePhoto)

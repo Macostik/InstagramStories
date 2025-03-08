@@ -10,12 +10,15 @@
 
 
 import SwiftUI
+import CoreData
 
 @main
 struct Instagram_testApp: App {
     var body: some Scene {
         WindowGroup {
             InstagramStoryView()
+                .environment(\.managedObjectContext,
+                              PersistenceController.shared.container.viewContext)
         }
     }
 }

@@ -15,18 +15,18 @@ final class PhotoCellViewModel: ObservableObject {
     @Published var photoURL: URL?
     @Published var isLiked: Bool = false
     
-    private var photo: Photo
-    private var onClickPhoto: ((Photo) -> Void)?
-    private var onLikedPhoto: ((Photo) -> Void)?
+    private var photo: PhotoEntity
+    private var onClickPhoto: ((PhotoEntity) -> Void)?
+    private var onLikedPhoto: ((PhotoEntity) -> Void)?
     
-    init(photo: Photo,
-         onClickPhoto: ((Photo) -> Void)?,
-         onLikedPhoto: ((Photo) -> Void)?) {
+    init(photo: PhotoEntity,
+         onClickPhoto: ((PhotoEntity) -> Void)?,
+         onLikedPhoto: ((PhotoEntity) -> Void)?) {
         self.photo = photo
         self.onClickPhoto = onClickPhoto
         self.onLikedPhoto = onLikedPhoto
         
-        self.photoURL = URL(string: photo.url)
+        self.photoURL = URL(string: photo.url ?? "")
     }
     func clickPhoto() {
         onClickPhoto?(photo)

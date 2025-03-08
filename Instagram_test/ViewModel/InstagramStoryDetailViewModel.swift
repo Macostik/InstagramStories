@@ -17,17 +17,17 @@ class InstagramStoryDetailViewModel: ObservableObject {
     @Published var isLiked: Bool = false
     
     
-    private var photo: Photo
+    private var photo: PhotoEntity
     
-    init(photo: Photo) {
+    init(photo: PhotoEntity) {
         self.photo = photo
         
-        self.photoUrl = URL(string: photo.url)
-        self.isLiked = photo.isLiked
+        self.photoUrl = URL(string: photo.url ?? "")
+//        self.isLiked = photo.isLiked
     }
     
     func likedPhoto() {
-        photo.isLiked = !photo.isLiked
-        isLiked = photo.isLiked
+//        photo.isLiked = !photo.isLiked
+//        isLiked = photo.isLiked
     }
 }

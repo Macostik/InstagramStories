@@ -16,8 +16,6 @@ struct Photo: Equatable, Identifiable, Hashable {
     let title: String
     let url: String
     
-    var isLiked: Bool
-    
     enum CodingKeys: String, CodingKey {
         case id
         case title
@@ -32,8 +30,6 @@ extension Photo: Decodable {
       id = try container.decode(Int.self, forKey: .id)
       title = try container.decode(String.self, forKey: .title)
       url = try container.decode(String.self, forKey: .url)
-
-      isLiked = try container.decodeIfPresent(Bool.self, forKey: .isLiked) ?? false
   }
 }
 

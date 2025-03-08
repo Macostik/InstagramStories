@@ -10,15 +10,17 @@
 
 
 import SwiftUI
+import CoreData
 
 struct InstagramStoryView: View {
     @ObservedObject var viewModel = InstagramStoryViewModel()
+    @FetchRequest(sortDescriptors: []) private var photoList: FetchedResults<PhotoEntity>
     var body: some View {
         NavigationStack(path: $viewModel.path) {
             ZStack {
                 imagesListView()
             }
-            .navigationDestination(for: Photo.self) { photo in
+            .navigationDestination(for: PhotoEntity.self) { photo in
                 InstagramStoryDetailView(photo: photo)
             }
         }
@@ -29,14 +31,14 @@ struct InstagramStoryView: View {
 
 extension InstagramStoryView {
     func imagesListView() -> some View {
-        List(viewModel.photoList) { photo in
+        List(photoList) { photo in
             PhotoCellView(photo: photo,
                           onClickPhoto: viewModel.onClickPhoto,
                           onLikePhoto: viewModel.onLikedPhoto)
             .onAppear {
-                if photo == viewModel.photoList.last {
-                    self.viewModel.fetchPhotos(offset: viewModel.photoList.count)
-                }
+//                if photo == photoList.last {
+//                    self.viewModel.fetchPhotos(offset: viewModel.photoList.count)
+//                }
             }
             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             .listRowSeparator(.hidden)
@@ -50,10 +52,6 @@ extension InstagramStoryView {
             LoaderView(isPresented: $viewModel.isLoading)
         }
     }
-}
-
-#Preview {
-    InstagramStoryView()
 }
 
 public struct LoaderView: View {

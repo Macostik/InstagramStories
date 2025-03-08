@@ -14,7 +14,7 @@ import SwiftUI
 struct InstagramStoryDetailView: View {
     @ObservedObject var viewModel: InstagramStoryDetailViewModel
     
-    init(photo: Photo) {
+    init(photo: PhotoEntity) {
         viewModel = InstagramStoryDetailViewModel(photo: photo)
     }
     
